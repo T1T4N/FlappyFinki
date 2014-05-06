@@ -58,13 +58,11 @@ namespace FlappyFinki
             {
                 fallingSpeed += (float) 0.08;
                 Location.Y += (int) (2*fallingSpeed);
-                //ADD MOMENTUM
             }
 
             matrix = new Matrix();
             if (heightPoller > 0 && Active)
             {
-                //smooth jumping
                 Location.Y -= 8;
                 heightPoller -= 8;
                 fallingSpeed = 0;
@@ -153,11 +151,9 @@ namespace FlappyFinki
             wall1.DrawWall(e);
             wall2.DrawWall(e);
 
-            //calculate where they should be at, start at the max length of the form.
             if (wall1.topWall.X <= -64)
             {
                 //update.
-                //+1 point.
                 scoreGiven = false;
 
                 wall1.UpdatePositionTop(maxSize.X, r.Next(90, 200));
@@ -172,7 +168,6 @@ namespace FlappyFinki
             if (wall2.topWall.X <= -64)
             {
                 //update.
-                //+1 point.
                 scoreGiven = false;
                 wall2.UpdatePositionTop(maxSize.X, r.Next(150, 250));
                 currentColor2 = Wall.colors[r.Next(0, Wall.colors.Count - 1)];
@@ -204,8 +199,6 @@ namespace FlappyFinki
             {
                 Active = false;
                 fallingRotation = 0;
-
-                //activate main form's shit and show score.
                 return true;
             }
 
